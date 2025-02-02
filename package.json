@@ -1,0 +1,29 @@
+{
+  "name": "backend-challenge-1",
+  "version": "1.0.0",
+  "description": "### Plataforma simplificada de pagamentos",
+  "main": "dist/index.js",
+  "scripts": {
+    "start:dev": "npx tsx watch src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c1r5/backend-challenge-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/c1r5/backend-challenge-1/issues"
+  },
+  "homepage": "https://github.com/c1r5/backend-challenge-1#readme",
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "fastify": "^5.2.1",
+    "tsx": "^4.19.2"
+  }
+}
