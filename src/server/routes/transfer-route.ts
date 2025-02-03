@@ -1,16 +1,17 @@
 import { ServerRoute } from "@server/models";
 import { RouteOptions } from "fastify";
+import UserRepository from "src/repositories/user-repository";
 
 export default class TransferRoute implements ServerRoute {
   route: RouteOptions = {
     method: "POST",
-    url: "/transfer",
+    url: "/api/transfer",
     handler: function (req, reply): unknown {
       return reply.status(201).send({message: 'success'})
     }
   }
 
-  constructor() {}
+  constructor(user_repository: UserRepository) {}
 }
 
 // schema: {

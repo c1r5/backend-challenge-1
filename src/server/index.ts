@@ -17,7 +17,6 @@ abstract class Router {
 
 class Server extends ServerRouteManager {
   private port = 3000
-  private routes = []
 
   constructor(port?: number) {
     super();
