@@ -10,6 +10,7 @@ server.listen()
 
 const cache = new Cache()
 const user_repository = new UserRepository(cache)
+
 const transfer_route = new TransferRoute(user_repository)
 const user_create_route = new UserCreateRoute(user_repository)
 
