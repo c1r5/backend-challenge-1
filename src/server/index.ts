@@ -1,26 +1,19 @@
 import Fastify, { FastifyInstance, RouteOptions } from 'fastify';
 import TransferRoute from './routes/transfer-route';
+import { ServerRoute } from './models';
 
 const app = Fastify({ logger: true })
 
-abstract class ServerRouteManager {
-  register(router: Router) {
-    if (router.route) {
-      app.route(router.route)
-    }
-  }
-}
 
-abstract class Router {
-  public route?: RouteOptions | null = null
-}
-
-class Server extends ServerRouteManager {
+class Server {
   private port = 3000
 
   constructor(port?: number) {
-    super();
     this.port = port || this.port
+  }
+
+  app(): FastifyInstance {
+    return app
   }
 
   listen() {
@@ -32,6 +25,5 @@ class Server extends ServerRouteManager {
 
 export {
   TransferRoute,
-  Server,
-  Router
+  Server
 }

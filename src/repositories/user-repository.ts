@@ -1,4 +1,4 @@
-import User from "src/dtos/user-dto";
+import { User } from "src/dtos/user-dto";
 import { json_file_update } from "./user-utilities";
 import Cache from "src/usecases/cache-usecase";
 
@@ -13,7 +13,8 @@ export default class UserRepository {
     this.cache = cache
   }
 
-  find_by_id(user_id: number): User | undefined {
+  find(user: User): User | undefined {
+    let user_id = user.id;
     let cached_user_by_id = `userid_${user_id}`
 
     if (this.cache.has(cached_user_by_id)) {
@@ -34,8 +35,6 @@ export default class UserRepository {
 
   create(user: User): User | undefined {
     if (!this.users) return;
-
-    if (this.find_by_id(user.id)) return
 
     let old_len = this.users?.length
 

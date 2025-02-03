@@ -1,5 +1,5 @@
-import { RouteOptions } from "fastify";
+import { FastifyInstance } from "fastify";
 
 export interface ServerRoute {
-  route: RouteOptions
+  register(app: FastifyInstance): void
 }
