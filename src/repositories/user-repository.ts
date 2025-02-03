@@ -35,6 +35,8 @@ export default class UserRepository {
   create(user: User): User | undefined {
     if (!this.users) return;
 
+    if (this.find_by_id(user.id)) return
+
     let old_len = this.users?.length
 
     user.id = old_len + 1
