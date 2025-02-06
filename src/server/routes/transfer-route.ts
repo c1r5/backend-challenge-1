@@ -1,5 +1,5 @@
 import { ServerRoute } from "@server/models";
-import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { DoneFuncWithErrOrRes, FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import UserRepository from "src/repositories/user-repository";
 
 export default class TransferRoute implements ServerRoute {
@@ -7,8 +7,11 @@ export default class TransferRoute implements ServerRoute {
   constructor(user_repository: UserRepository) { 
     this.user_repository = user_repository
   }
-  handler(req: FastifyRequest, reply: FastifyReply): void {
-    throw new Error("Method not implemented.");
+  pre_handler(req: FastifyRequest, reply: FastifyReply, done: DoneFuncWithErrOrRes): void {
+    done()
+  }
+  handler(req: FastifyRequest, reply: FastifyReply): unknown {
+    return reply.status(200).send('')
   }
 
   register(app: FastifyInstance): void {

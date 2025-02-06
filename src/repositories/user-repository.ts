@@ -39,13 +39,6 @@ export default class UserRepository {
     let old_len = this.users?.length
 
     user.id = old_len + 1
-    user.balance = 0
-
-    let new_len = this.users?.push(user)
-
-    json_file_update(user_database_mock_filepath, this.users)
-
-    if (new_len <= old_len) return
 
     return user
   }
